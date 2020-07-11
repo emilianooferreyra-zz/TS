@@ -8,7 +8,7 @@ export class ApiSync<T extends HasId> {
   constructor(public rootUrl: string) { }
 
   fetch(id: number): AxiosPromise {
-    return axios.get(`${this.rootUrl}/${id}`)
+    return axios.get(`${this.rootUrl}/${id}`);
   }
 
   save(data: T): AxiosPromise {
@@ -17,7 +17,7 @@ export class ApiSync<T extends HasId> {
     if (id) {
       return axios.put(`${this.rootUrl}/${id}`, data);
     } else {
-      axios.post(this.rootUrl, data);
+      return axios.post(this.rootUrl, data);
     }
   }
 }
